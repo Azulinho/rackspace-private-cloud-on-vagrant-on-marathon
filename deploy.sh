@@ -12,6 +12,8 @@ cd vagrant-rpcv901_deploy
 
 vagrant up
 
+vagrant ssh deploy1 -- sudo su -c 'pip install ansible'
+
 vagrant ssh deploy1 -- sudo su -c 'cd /opt/ansible-lxc-rpc/rpc_deployment/ ; ansible-playbook -e @/etc/rpc_deploy/user_variables.yml playbooks/setup/host-setup.yml'
 
 vagrant ssh deploy1 -- sudo su -c 'cd /opt/ansible-lxc-rpc/rpc_deployment/ ;ansible-playbook -e @/etc/rpc_deploy/user_variables.yml playbooks/infrastructure/haproxy-install.yml'
